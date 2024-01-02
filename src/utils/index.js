@@ -4,21 +4,21 @@ export const MenuList = [
     {
         title: 'Home',
         url: '/',
-        icon: <HomeOutlined />,
+        icon: 'HomeOutlined',
     },
     {
         title: 'Cryptocurrencies',
-        url: '/cryoptocurrencies',
-        icon: <FundOutlined />
+        url: '/cryptocurrencies',
+        icon: 'FundOutlined',
     },
     {
         title: 'Exchanges',
         url: '/exchanges',
-        icon: <MoneyCollectOutlined />,
+        icon: 'MoneyCollectOutlined',
     },
     {
         title: 'News',
         url: '/news',
-        icon: <BulbOutlined />,
+        icon: 'BulbOutlined',
     }
-]
+];

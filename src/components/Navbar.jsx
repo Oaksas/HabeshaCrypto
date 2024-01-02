@@ -18,14 +18,21 @@ function Navbar() {
             </div>
 
             <Menu theme='dark'>
-                {MenuList.map((menu) => (
-                    <Menu.Item icon={menu.icon}>
-                        <Link to={menu.path}>{menu.title}</Link>
-                    </Menu.Item>
-                ))}
+                {MenuList.map((menu) => {
+                    const IconComponent = {
+                        'HomeOutlined': <HomeOutlined />,
+                        'FundOutlined': <FundOutlined />,
+                        'MoneyCollectOutlined': <MoneyCollectOutlined />,
+                        'BulbOutlined': <BulbOutlined />,
+                    }[menu.icon];
 
+                    return (
+                        <Menu.Item icon={IconComponent}>
+                            <Link to={menu.url}>{menu.title}</Link>
+                        </Menu.Item>
+                    );
+                })}
             </Menu>
-
         </div>
     )
 }
