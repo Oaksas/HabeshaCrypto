@@ -1,10 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query';
 import BaseUrl from 'antd/es/typography/Base';
-
-
-
-
-
+import { createRequest } from '../utils';
 export const cryptoApi = createApi({
     reducerPath: 'cryptoApi',
     baseQuery: fetchBaseQuery({ baseUrl: BaseUrl }),
