@@ -18,7 +18,7 @@ function Navbar() {
             </div>
 
             <Menu theme='dark'>
-                {MenuList.map((menu) => {
+                {MenuList.map((menu, i) => {
                     const IconComponent = {
                         'HomeOutlined': <HomeOutlined />,
                         'FundOutlined': <FundOutlined />,
@@ -27,7 +27,7 @@ function Navbar() {
                     }[menu.icon];
 
                     return (
-                        <Menu.Item icon={IconComponent}>
+                        <Menu.Item icon={IconComponent} key={i}>
                             <Link to={menu.url}>{menu.title}</Link>
                         </Menu.Item>
                     );
