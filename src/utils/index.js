@@ -29,4 +29,11 @@ export const cryptoApiHeaders = {
     'x-rapidapi-key': 'bb7c54c949mshf76f9cd4b889e90p1625f5jsnaf1ff6eef258',
 };
 
+export const BaseUrlNews = 'https://news-api14.p.rapidapi.com';
+export const newsHeaders = {
+    'X-RapidAPI-Key': 'bb7c54c949mshf76f9cd4b889e90p1625f5jsnaf1ff6eef258',
+    'X-RapidAPI-Host': 'news-api14.p.rapidapi.com'
+}
+
 export const createRequest = (url) => ({ url, headers: cryptoApiHeaders });
+export const createRequestNews = (url) => ({ url, headers: newsHeaders });
