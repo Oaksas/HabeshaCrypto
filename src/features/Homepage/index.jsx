@@ -3,9 +3,9 @@ import { Typography, Row, Col, Statistic } from 'antd'
 import millify from 'millify'
 import { Link } from 'react-router-dom'
 import CountUp from 'react-countup'
-import { useGetCryptosQuery } from '../../services/cryptoApi'
 import Cryptocurrencies from '../Cryptocurrencies'
 import News from '../News'
+import { useGetCryptosQuery } from '../../services/cryptoAPI'
 
 
 function Homepage() {
