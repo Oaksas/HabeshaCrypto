@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { BaseUrlNews, createRequestNews } from "../utils";
 
-export const cryptoNewsApi = createApi({
+export const cryptoNewsAPI = createApi({
     reducerPath: "cryptoNewsApi",
     baseQuery: fetchBaseQuery({ baseUrl: BaseUrlNews }),
     endpoints: (builder) => ({
@@ -11,4 +11,4 @@ export const cryptoNewsApi = createApi({
     }),
 });
 
-export const { useGetCryptoNewsQuery } = cryptoNewsApi;
+export const { useGetCryptoNewsQuery } = cryptoNewsAPI;

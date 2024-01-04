@@ -6,7 +6,6 @@ import { Image } from 'antd';
 
 function NewsCard
     ({ news, i }) {
-    console.log("news", news, i)
     return (
         <Col xs={24} sm={12} lg={8} key={i}>
             <Card hoverable className='news-card'>
