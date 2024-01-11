@@ -1,5 +1,3 @@
-import { BulbOutlined, FundOutlined, HomeOutlined, MoneyCollectOutlined } from "@ant-design/icons";
-
 export const MenuList = [
     {
         title: 'Home',
@@ -23,16 +21,16 @@ export const MenuList = [
     }
 ];
 
-export const BaseUrl = 'https://coinranking1.p.rapidapi.com';
+export const BaseUrl = import.meta.env.VITE_CRYPTO_API_URL;
 export const cryptoApiHeaders = {
-    'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
-    'x-rapidapi-key': 'bb7c54c949mshf76f9cd4b889e90p1625f5jsnaf1ff6eef258',
+    'x-rapidapi-host': import.meta.env.VITE_CRYPTO_RAPIDAPI_HOST,
+    'x-rapidapi-key': import.meta.env.VITE_RAPIDAPI_KEY,
 };
 
-export const BaseUrlNews = 'https://real-time-news-data.p.rapidapi.com';
+export const BaseUrlNews = import.meta.env.VITE_NEWS_API_URL;
 export const newsHeaders = {
-    'X-RapidAPI-Key': 'bb7c54c949mshf76f9cd4b889e90p1625f5jsnaf1ff6eef258',
-    'X-RapidAPI-Host': 'real-time-news-data.p.rapidapi.com'
+    'X-RapidAPI-Key': import.meta.env.VITE_RAPIDAPI_KEY,
+    'X-RapidAPI-Host': import.meta.env.VITE_NEWS_RAPIDAPI_HOST
 }
 
 export const createRequest = (url) => ({ url, headers: cryptoApiHeaders });
