@@ -6,7 +6,7 @@ import { useState } from "react"
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, NumberOutlined, ThunderboltOutlined, CheckOutlined, MessageOutlined, BulbOutlined } from '@ant-design/icons'
 import { useGetCryptoDetailQuery, useGetCryptoHistoryQuery } from "../../services/cryptoAPI"
 import { time } from "../../utils"
-import { LineChart } from "../../components"
+import { LineChart, Loader } from "../../components"
 
 
 function CryptoDetails() {
@@ -18,7 +18,7 @@ function CryptoDetails() {
     console.log("coinHistory", coinHistory)
 
 
-    if (isFetching) return <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}><Spin /></div>
+    if (isFetching) return <Loader />
     const stats = [
         { title: 'Price to USD', value: `$ ${cryptoDetails?.price && millify(cryptoDetails?.price)}`, icon: <DollarCircleOutlined /> },
         { title: 'Rank', value: cryptoDetails?.rank, icon: <NumberOutlined /> },

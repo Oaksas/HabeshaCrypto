@@ -3,6 +3,7 @@ import millify from 'millify'
 import { Link } from 'react-router-dom'
 import { Card, Col, Row, Input, Spin } from 'antd'
 import { useGetCryptosQuery } from '../../services/cryptoAPI'
+import { Loader } from '../../components'
 
 function Cryptocurrencies({ simplified }) {
     const count = simplified ? 10 : 100
@@ -16,7 +17,7 @@ function Cryptocurrencies({ simplified }) {
         setCryptos(filteredData)
     }, [cryptosList, searchTerm])
 
-    if (isFetching) return <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}><Spin /></div>
+    if (isFetching) return <Loader />
     return (
         <>
             {!simplified && <div className="search-crypto">

@@ -18,7 +18,7 @@ function Navbar() {
     }, [])
 
     useEffect(() => {
-        if (screenSize < 768) {
+        if (screenSize < 890) {
             setActiveMenu(false)
         } else {
             setActiveMenu(true)
@@ -33,12 +33,11 @@ function Navbar() {
                 <Typography.Title level={2} className='logo'>
                     <Link to='/'>Habesa Crypto</Link>
                 </Typography.Title>
-                {/* <Button className='menu-control-container'>
+                <Button className='menu-control-container' onClick={() => setActiveMenu(!activeMenu)}>
                     <MenuOutlined />
-                </Button> */}
+                </Button>
             </div>
-
-            <Menu theme='dark'>
+            {activeMenu && (<Menu theme='dark'>
                 {MenuList.map((menu, i) => {
                     const IconComponent = {
                         'HomeOutlined': <HomeOutlined />,
@@ -53,7 +52,8 @@ function Navbar() {
                         </Menu.Item>
                     );
                 })}
-            </Menu>
+            </Menu>)}
+
         </div>
     )
 }

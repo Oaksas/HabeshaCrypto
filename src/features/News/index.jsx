@@ -1,11 +1,9 @@
 import { Select, Typography, Row, Col, Avatar, Card } from 'antd'
-import moment from 'moment'
 import { useGetCryptoNewsQuery } from '../../services/cryptoNewsAPI'
-import { Link } from 'react-router-dom'
 import NewsCard from '../../components/News'
 import { useState } from 'react'
 import { useGetCryptosQuery } from '../../services/cryptoAPI'
-import { Spin } from 'antd';
+import { Loader } from '../../components'
 
 
 function News({ simplified }) {
@@ -15,8 +13,7 @@ function News({ simplified }) {
 
 
 
-    if (isFetching || cryptoNews?.articles?.length === 0) return (<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}><Spin /></div>
-    )
+    if (isFetching || cryptoNews?.articles?.length === 0) return (<Loader />)
     if (error) {
         return (
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>

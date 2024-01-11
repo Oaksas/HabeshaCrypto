@@ -6,13 +6,14 @@ import CountUp from 'react-countup'
 import Cryptocurrencies from '../Cryptocurrencies'
 import News from '../News'
 import { useGetCryptosQuery } from '../../services/cryptoAPI'
+import { Loader } from '../../components'
 
 
 function Homepage() {
     const { data, isFetching } = useGetCryptosQuery(10)
     const globalStats = data?.data?.stats
 
-    if (isFetching) return 'Loading...'
+    if (isFetching) return <Loader />
     return (
         <>
             <Typography.Title level={2} className='heading'>Global Crypto Stats</Typography.Title>
