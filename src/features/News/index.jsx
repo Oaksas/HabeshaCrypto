@@ -12,7 +12,6 @@ function News({ simplified }) {
     const [newsCategory, setNewsCategory] = useState('Cryptocurrency')
     const { data: cryptoNews, error, isFetching } = useGetCryptoNewsQuery({ newsCategory: newsCategory, count: simplified ? 6 : 12 })
     const { data: cryptos, isFetching: cryptosFetching } = useGetCryptosQuery(100)
-    console.log("crypto", cryptos)
 
 
 

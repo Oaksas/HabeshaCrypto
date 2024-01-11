@@ -37,3 +37,6 @@ export const newsHeaders = {
 
 export const createRequest = (url) => ({ url, headers: cryptoApiHeaders });
 export const createRequestNews = (url) => ({ url, headers: newsHeaders });
+
+export const time = ['3h', '24h', '7d', '30d', '3m', '1y', '5y']
+
