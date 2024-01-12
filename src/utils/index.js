@@ -29,8 +29,7 @@ export const cryptoApiHeaders = {
 
 export const BaseUrlNews = import.meta.env.VITE_NEWS_API_URL;
 export const newsHeaders = {
-    'X-RapidAPI-Key': import.meta.env.VITE_RAPIDAPI_KEY,
-    'X-RapidAPI-Host': import.meta.env.VITE_NEWS_RAPIDAPI_HOST
+    Authorization: import.meta.env.VITE_NEWS_API_KEY,
 }
 
 export const createRequest = (url) => ({ url, headers: cryptoApiHeaders });

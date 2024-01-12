@@ -3,11 +3,8 @@ import { Line } from 'react-chartjs-2'
 import { Col, Row, Typography } from 'antd'
 
 export default function LineChart({ coinHistory, currentPrice, coinName }) {
-    console.log(coinHistory, currentPrice, coinName)
     const coinPrice = []
     const coinTimestamp = []
-
-
 
     for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
         coinPrice.push(coinHistory?.data?.history[i].price)

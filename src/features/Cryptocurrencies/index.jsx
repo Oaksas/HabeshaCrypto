@@ -3,14 +3,13 @@ import millify from 'millify'
 import { Link } from 'react-router-dom'
 import { Card, Col, Row, Input, Spin } from 'antd'
 import { useGetCryptosQuery } from '../../services/cryptoAPI'
-import { Loader } from '../../components'
+import { Error, Loader } from '../../components'
 
 function Cryptocurrencies({ simplified }) {
     const count = simplified ? 10 : 100
-    const { data: cryptosList, isFetching } = useGetCryptosQuery(count)
+    const { data: cryptosList, isFetching, isError } = useGetCryptosQuery(count)
     const [cryptos, setCryptos] = useState(cryptosList?.data?.coins)
     const [searchTerm, setSearchTerm] = useState('')
-    console.log(cryptosList)
 
     useEffect(() => {
         const filteredData = cryptosList?.data?.coins.filter((coin) => coin.name.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -18,6 +17,8 @@ function Cryptocurrencies({ simplified }) {
     }, [cryptosList, searchTerm])
 
     if (isFetching) return <Loader />
+    if (isError) return <Error />
+
     return (
         <>
             {!simplified && <div className="search-crypto">

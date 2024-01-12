@@ -6,19 +6,18 @@ import { useState } from "react"
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, NumberOutlined, ThunderboltOutlined, CheckOutlined, MessageOutlined, BulbOutlined } from '@ant-design/icons'
 import { useGetCryptoDetailQuery, useGetCryptoHistoryQuery } from "../../services/cryptoAPI"
 import { time } from "../../utils"
-import { LineChart, Loader } from "../../components"
+import { Error, LineChart, Loader } from "../../components"
 
 
 function CryptoDetails() {
     const { coinId } = useParams()
     const [timePeriod, setTimePeriod] = useState('7d')
-    const { data, isFetching } = useGetCryptoDetailQuery(coinId)
+    const { data, isFetching, isError } = useGetCryptoDetailQuery(coinId)
     const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timePeriod })
     const cryptoDetails = data?.data?.coin
-    console.log("coinHistory", coinHistory)
-
 
     if (isFetching) return <Loader />
+    if (isError) return <Error />
     const stats = [
         { title: 'Price to USD', value: `$ ${cryptoDetails?.price && millify(cryptoDetails?.price)}`, icon: <DollarCircleOutlined /> },
         { title: 'Rank', value: cryptoDetails?.rank, icon: <NumberOutlined /> },

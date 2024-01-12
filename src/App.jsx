@@ -1,7 +1,7 @@
 import { Routes, Route, Link } from 'react-router-dom'
 import { Layout, Typography, Space } from 'antd'
 import './App.css'
-import { Navbar } from './components'
+import { Footer, Navbar } from './components'
 import { Exchanges, Homepage, Cryptocurrencies, Cryptodetail, News } from './features'
 
 function App() {
@@ -21,18 +21,7 @@ function App() {
             </Routes>
           </div>
         </Layout>
-
-        <div className="footer">
-          <Typography.Title level={5} style={{ color: 'white', textAlign: 'center' }}>
-            Habesa Crypto <br />
-            All rights reserved
-          </Typography.Title>
-          <Space>
-            <Link to='/'>Home</Link>
-            <Link to='/exchanges'>Exchanges</Link>
-            <Link to='/news'>News</Link>
-          </Space>
-        </div>
+        <Footer />
       </div >
 
     </div >

@@ -9,27 +9,30 @@ function NewsCard
     return (
         <Col xs={24} sm={12} lg={8} key={i}>
             <Card hoverable className='news-card'>
-                <a href={news.link} target='_blank' rel="noreferrer">
 
-                    <div className="news-image-container">
+                <div className="news-image-container">
+                    <a href={news.url} target='_blank' rel="noreferrer">
                         <Typography.Title className='news-title' level={4}>{news.title.substring(0, 50)}...</Typography.Title>
-                        {/* <img style={{ maxWidth: '200px', maxHeight: '100px' }} /> */}
-                        <Image
-                            width={200}
-                            src={news?.photo_url || 'https://www.cryptocompare.com/media/37746251/untitled-design-2.png'} alt="news"
-                            style={{ borderRadius: '8px' }}
+
+                    </a>
+                    <Image
+                        width={200}
+                        src={news?.imageurl || 'https://www.cryptocompare.com/media/37746251/untitled-design-2.png'} alt="news"
+                        style={{ borderRadius: '8px' }}
 
 
-                        />
-                    </div>
+                    />
+                </div>
+                <a href={news.url} target='_blank' rel="noreferrer">
                     <p>{news.title}</p>
-                    <div className='provider-container'>
-                        <div>
-                            <Avatar src={news?.source_logo_url} alt='' />
-                        </div>
-                        <Typography.Text className='provider-name'>{moment(news?.published_datetime_utc).startOf('ss').from()}</Typography.Text>
-                    </div>
+
                 </a>
+                <div className='provider-container'>
+                    <div>
+                        <Avatar src={news?.source_info.img} alt='' />
+                    </div>
+                    <Typography.Text className='provider-name'>{moment.unix(news?.published_on).fromNow()}</Typography.Text>
+                </div>
             </Card>
         </Col>
     )
