@@ -63,7 +63,7 @@ function Navbar() {
 
                             return (
                                 <Menu.Item icon={IconComponent} key={i}>
-                                    <Link to={menu.url}>{menu.title}</Link>
+                                    <Link to={menu.url} onClick={() => setActiveMenu(!activeMenu)}>{menu.title}</Link>
                                 </Menu.Item>
                             );
                         })}
