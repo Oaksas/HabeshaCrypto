@@ -11,10 +11,12 @@ import { Error, LineChart, Loader } from "../../components"
 
 function CryptoDetails() {
     const { coinId } = useParams()
-    const [timePeriod, setTimePeriod] = useState('7d')
+    const [timePeriod, setTimePeriod] = useState('5y')
     const { data, isFetching, isError } = useGetCryptoDetailQuery(coinId)
     const { data: coinHistory } = useGetCryptoHistoryQuery({ coinId, timePeriod })
     const cryptoDetails = data?.data?.coin
+
+    console.log('history', coinHistory)
 
     if (isFetching) return <Loader />
     if (isError) return <Error />
@@ -46,7 +48,7 @@ function CryptoDetails() {
                     View value statistics, market cap and supply.
                 </p>
             </Col>
-            <Select defaultValue={'7d'}
+            <Select defaultValue={'5y'}
                 className="select-timeperiod"
                 placeholder='Select Time Period'
                 onChange={(value) => setTimePeriod(value)}>

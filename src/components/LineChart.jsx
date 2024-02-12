@@ -3,6 +3,7 @@ import { Line } from 'react-chartjs-2'
 import { Col, Row, Typography } from 'antd'
 
 export default function LineChart({ coinHistory, currentPrice, coinName }) {
+    console.log("Called")
     const coinPrice = []
     const coinTimestamp = []
 
@@ -11,7 +12,7 @@ export default function LineChart({ coinHistory, currentPrice, coinName }) {
         coinTimestamp.push(new Date(coinHistory?.data?.history[i].timestamp * 1000).toLocaleDateString())
     }
 
-    const data = {
+    let data = {
         labels: coinTimestamp,
         datasets: [
             {

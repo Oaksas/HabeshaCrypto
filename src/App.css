@@ -334,6 +334,7 @@ a:hover {
 .provider-container {
     display: flex;
     justify-content: space-between;
+    
 }
 
 .provider-name {
